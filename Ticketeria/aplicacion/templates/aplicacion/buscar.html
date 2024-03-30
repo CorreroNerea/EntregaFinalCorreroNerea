@@ -1,0 +1,30 @@
+{% extends "aplicacion/index.html" %}
+
+
+{% block header %} 
+<div class="row gx-5 align-items-center justify-content-center">
+    <div class="col-lg-8 col-xl-7 col-xxl-6">
+        <div class="my-5 text-center text-xl-start">
+           
+            <h1 class="display-5 fw-bolder text-white mb-2">Buscar</h1>
+        </div>
+    </div>
+</div>
+{% endblock header %} 
+
+{% block features %}
+
+<form action="{% url 'encontrarArtista' %}" method="get">
+    {% csrf_token %}
+    <p>Ingrese artista que desea buscar: <input type="text" name="buscar" id="buscar" ></p>
+    <input type="submit" value="Buscar">
+</form>
+<!--https://github.com/NormanBeltran/50215-Clase-21-->
+
+{% endblock features %}
+
+{% block testimonial %}
+{% endblock testimonial %}
+
+{% block preview %}
+{% endblock preview %}

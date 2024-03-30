@@ -1,0 +1,57 @@
+{% extends "aplicacion/index.html" %}
+
+
+{% block header %} 
+<div class="row gx-5 align-items-center justify-content-center">
+    <div class="col-lg-8 col-xl-7 col-xxl-6">
+        <div class="my-5 text-center text-xl-start">
+           
+            <h1 class="display-5 fw-bolder text-white mb-2">Comprar</h1>
+        </div>
+    </div>
+</div>
+{% endblock header %} 
+
+{% block features %}
+<table>
+    <tr>
+        <td width="230" height="100"  ><h2 style="font-size: 25px ;"  >Compra</h2><td>
+        <td>
+            <a href="{% url 'CompraCreate' %}" ><i class="fa-solid fa-cart-plus .btn-lg" style="color: #f89e20;"  ></i>
+        </td>
+    </tr>
+</table>
+
+<table class> <!--completa una class-->
+<thead>
+    <tr>
+        <th> </th>
+        <th>Producto</th>
+        <th>Codigo</th>
+        <th>Cantidad</th>
+        <th> </th>
+    </tr>
+</thead>
+<tbody>
+{% for c in compra %} 
+   <tr>
+    <td> {{ c.id }} </td>
+    <td> {{ c.producto }} </td>
+    <td> {{ c.codigo }} </td>
+    <td> {{ c.cantidad }} </td>
+    <td> 
+       <a href="{% url 'CompraUpdate' c.id %}"><i class="fa fa-pencil fa-fw"></i>Edit cantidad</a>
+       <a href="{% url 'CompraDelete' c.id %}" class="btn btn-danger"><i class="fa fa-trash-o fa-lg"></i> Delete</a>
+    </td> 
+   </tr>
+{% endfor %}    
+</tbody>
+</table>
+
+{% endblock features %}
+
+{% block testimonial %}
+{% endblock testimonial %}
+
+{% block preview %}
+{% endblock preview %}

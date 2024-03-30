@@ -1,0 +1,49 @@
+{% extends "aplicacion/index.html" %}
+
+
+{% block header %} 
+<div class="row gx-5 align-items-center justify-content-center">
+    <div class="col-lg-8 col-xl-7 col-xxl-6">
+        <div class="my-5 text-center text-xl-start">
+           
+            <h1 class="display-5 fw-bolder text-white mb-2">Artistas</h1>
+        </div>
+    </div>
+</div>
+{% endblock header %} 
+
+{% block features %}
+
+<table>
+    <tr>
+        <td width="230" height="100"  ><h2 style="font-size: 25px ;" >Comprar</h2><td>
+        <td>
+            <a href="{% url 'ArtistaCreate' %}" ><i class="fa-solid fa-cart-plus .btn-lg" style="color: #f89e20;"  ></i>
+        </td>
+    </tr>
+</table>
+
+<table class> <!--completa una class-->
+    <thead>
+        <tr>
+            <th>Artista</th>
+            <th>Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for a in artista %} 
+       <tr>
+        <td> {{ a.id }} </td>
+        <td> {{ a.nombreArtista }} </td>
+        <td> {{ a.descripcion }} </td>
+       </tr>
+    {% endfor %}    
+    </tbody>
+    </table>
+{% endblock features %}
+
+{% block testimonial %}
+{% endblock testimonial %}
+
+{% block preview %}
+{% endblock preview %}

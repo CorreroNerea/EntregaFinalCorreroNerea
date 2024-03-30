@@ -1,0 +1,24 @@
+{% extends "aplicacion/index.html" %}
+
+
+{% block header %} 
+<h2>Avatar</h2>
+{% endblock header %} 
+
+{% block features %}
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %} 
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Guardar">
+</form>
+
+{% endblock features %}
+
+{% block testimonial %}
+{% endblock testimonial %}
+
+{% block preview %}
+{% endblock preview %}
