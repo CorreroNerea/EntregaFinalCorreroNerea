@@ -8,6 +8,9 @@ Objetivo:
 
 El objetivo del proyecto(TickBoom) es crear un sistema de gention de compra y venta de tickets para conciertos y demas. 
 
+Unit Test: https://docs.google.com/spreadsheets/d/1dFDRd3t6Y0evBWrTdWmWoKGk1gDRs6Anon8Kq8voxm4/edit?usp=sharing
+
+
 Consideraciones:
 1. Click in <> Code 
 2. Clone using the web URL.

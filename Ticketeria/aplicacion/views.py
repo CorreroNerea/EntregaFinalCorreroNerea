@@ -111,12 +111,10 @@ def proximafechaCreate(request):
             proximafecha_date = miForm.cleaned_data.get("date")
             proximafecha_lugar = miForm.cleaned_data.get("lugar")
             proximafecha_descripcion = miForm.cleaned_data.get("descripcion")
-            #proximafecha_img = miForm.cleaned_data.get["img"]
-            proximafecha = ProximaFecha(artista=proximafecha_artista, date=proximafecha_date, lugar=proximafecha_lugar, descripcion=proximafecha_descripcion)
-            proximafecha.save()
-            
             img = ProximaFecha.objects.get().img.url
             request.session["concierto"] = img
+            proximafecha = ProximaFecha(artista=proximafecha_artista, date=proximafecha_date, lugar=proximafecha_lugar, descripcion=proximafecha_descripcion, img=img)
+            proximafecha.save()
             
             contexto = {'proximafecha': ProximaFecha.objects.all().order_by("date")}
             return render(request, "aplicacion/proximafecha.html", contexto)
@@ -124,6 +122,23 @@ def proximafechaCreate(request):
         miForm = ProximaFechaForm()
     return render(request, "aplicacion/proximafechaForm.html", {"form": miForm} )
 
+
+@login_required
+def proximafechaComprar(request, id_proximafecha):
+    concierto = ProximaFecha.objects.get(id=id_proximafecha)
+    if request.method == "POST":
+        miForm = CompraForm(concierto)
+        if miForm.is_valid():
+            compra_producto = miForm.cleaned_data.get("artista")
+            compra_codigo = miForm.cleaned_data.get("id")
+            compra = Compra(producto=compra_producto, codigo=compra_codigo)
+            compra.save()
+            
+            contexto = {'compra': Compra.objects.all().order_by("id")}
+            return render(request, "aplicacion/compra.html", contexto)
+    else:
+        miForm = CompraForm()
+    return render(request, "aplicacion/compraForm.html", {"form": miForm} )
 
 # -------------- Acerca de mi ------------
 def acerca(request):

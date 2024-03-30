@@ -28,6 +28,7 @@ urlpatterns = [
     # ----------- fechas -------------
     path('proximafecha', proximafecha, name="Proximafecha"),
     path('ProximaFechaCreate', proximafechaCreate, name="ProximaFechaCreate"),
+    path('proximafechacomprar/<id_proximafecha>', proximafechaComprar, name="ProximafechaComprar"),
     
     
     # ----------- Otras paginas ---------

@@ -11,7 +11,7 @@ class PerfilForm(forms.Form):
 class CompraForm(forms.Form):
     producto = forms.CharField(max_length=20, required=True)
     codigo = forms.IntegerField(required=True)
-    cantidad = forms.IntegerField(required=True)
+    cantidad = forms.IntegerField()
     
 class ArtistaForm(forms.Form):
     nombreArtista = forms.CharField(max_length=20, required=True)
